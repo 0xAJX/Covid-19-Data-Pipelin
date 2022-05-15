@@ -20,5 +20,5 @@ if dataFrame is None:
 
 dataFrame.set_index('date', inplace=True)
 df = dataFrame.groupby('date').agg('min')
-
+df['date'] = df[df['date'] >= "2020-03-28"]
 st.area_chart(df)
