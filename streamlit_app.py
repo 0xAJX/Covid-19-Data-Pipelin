@@ -21,5 +21,4 @@ if dataFrame is None:
 
 df = dataFrame
 df.set_index('date', inplace=True)
-df.loc['03-03-2020':]
-st.area_chart(df)
+st.area_chart(df.loc['03-03-2020':])
