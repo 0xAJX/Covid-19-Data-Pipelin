@@ -10,17 +10,14 @@ st.write("Here's our first attempt at using data to create a table:")
 
 files = [f for f in listdir("ClimateChangeModified") if isfile(join("ClimateChangeModified", f))]
 
-dataFrame = None
+df = None
 
 for f in files:
     if re.search(".csv$", f):
-        dataFrame = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
+        df = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
 
-if dataFrame is None:
+if df is None:
     raise Exception("Issue with reading file")
 
-df = dataFrame
-# df.sort_values(by=['date'], inplace=True)
 df.set_index('date', inplace=True)
-# df.groupby("date").agg("min")
-st.area_chart(df.loc['03-03-2020':])
+st.area_chart(df)
