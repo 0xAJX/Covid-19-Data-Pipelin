@@ -18,7 +18,7 @@ for f in files:
 if dataFrame is None:
     raise Exception("Issue with reading file")
 
-dataFrame.set_index('date', inplace=True)
-df = dataFrame.groupby('date').agg('min')
+df = dataFrame
 df['date'] = df[df['date'] >= "2020-03-28"]
+dataFrame.set_index('date', inplace=True)
 st.area_chart(df)
