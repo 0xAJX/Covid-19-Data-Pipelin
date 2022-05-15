@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-st.write("Here's our first attempt at using data to create a table:")
+st.write("Monthly Deaths Caused By Covid-19")
 
 files = [f for f in listdir("ClimateChangeModified") if isfile(join("ClimateChangeModified", f))]
 
