@@ -20,4 +20,4 @@ if dataFrame is None:
 
 dataFrame.set_index('date', inplace=True)
 
-st.line_chart(dataFrame)
+st.area_chart(dataFrame)
