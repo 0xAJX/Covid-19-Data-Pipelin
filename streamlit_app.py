@@ -11,19 +11,13 @@ files = [f for f in listdir("ClimateChangeModified") if isfile(join("ClimateChan
 
 dataFrame = None
 
-# for f in files:
-#     if re.search(".csv$", f):
-#         dataFrame = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
-#
-# if dataFrame is None:
-#     raise Exception("Issue with reading file")
-#
-# st.line_chart(dataFrame)
+for f in files:
+    if re.search(".csv$", f):
+        dataFrame = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
 
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
+if dataFrame is None:
+    raise Exception("Issue with reading file")
 
-print(chart_data)
+dataFrame.set_index('date', inplace=True)
 
-st.line_chart(chart_data)
+st.line_chart(dataFrame)
