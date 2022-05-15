@@ -1,7 +1,7 @@
 import re
 from os import listdir
 from os.path import isfile, join
-
+import numpy as np
 import streamlit as st
 import pandas as pd
 
@@ -11,11 +11,17 @@ files = [f for f in listdir("ClimateChangeModified") if isfile(join("ClimateChan
 
 dataFrame = None
 
-for f in files:
-    if re.search(".csv$", f):
-        dataFrame = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
+# for f in files:
+#     if re.search(".csv$", f):
+#         dataFrame = pd.read_csv("ClimateChangeModified/" + f, names=["date", "death"])
+#
+# if dataFrame is None:
+#     raise Exception("Issue with reading file")
+#
+# st.line_chart(dataFrame)
 
-if dataFrame is None:
-    raise Exception("Issue with reading file")
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
 
-st.line_chart(dataFrame)
+st.line_chart(chart_data)
