@@ -20,6 +20,6 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 df = dataFrame
-df['date'] = df[df['date'] >= datetime.date(2020,3,28)]
-dataFrame.set_index('date', inplace=True)
+df.set_index('date', inplace=True)
+df.loc['2020-03-28':]
 st.area_chart(df)
