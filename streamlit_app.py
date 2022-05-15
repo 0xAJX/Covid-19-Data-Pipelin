@@ -19,6 +19,6 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 dataFrame.set_index('date', inplace=True)
-df = dataFrame.groupby('date').agg('avg')
+df = dataFrame.groupby('date').agg('min')
 
 st.area_chart(df)
