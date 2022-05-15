@@ -20,7 +20,7 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 df = dataFrame
-df.sort_values(by=['date'], inplace=True)
+# df.sort_values(by=['date'], inplace=True)
 df.set_index('date', inplace=True)
-df.groupby("date").agg("min")
+# df.groupby("date").agg("min")
 st.area_chart(df.loc['03-03-2020':])
