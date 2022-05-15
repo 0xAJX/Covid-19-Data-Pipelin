@@ -18,4 +18,4 @@ for f in files:
 if dataFrame is None:
     raise Exception("Issue with reading file")
 
-st.line_chart(dataFrame)
+st.write(dataFrame)
