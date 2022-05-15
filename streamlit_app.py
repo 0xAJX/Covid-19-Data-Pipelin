@@ -19,5 +19,6 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 dataFrame.set_index('date', inplace=True)
+df = dataFrame.groupby('date').agg('avg')
 
-st.area_chart(dataFrame)
+st.area_chart(df)
