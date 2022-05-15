@@ -4,6 +4,7 @@ from os.path import isfile, join
 import numpy as np
 import streamlit as st
 import pandas as pd
+import datetime
 
 st.write("Here's our first attempt at using data to create a table:")
 
@@ -19,6 +20,6 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 df = dataFrame
-df['date'] = df[df['date'] >= "2020-03-28"]
+df['date'] = df[df['date'] >= datetime.date(2020,3,28)]
 dataFrame.set_index('date', inplace=True)
 st.area_chart(df)
