@@ -20,5 +20,6 @@ if dataFrame is None:
     raise Exception("Issue with reading file")
 
 df = dataFrame
+df.sort_values(by=['date'], inplace=True)
 df.set_index('date', inplace=True)
 st.area_chart(df.loc['03-03-2020':])
